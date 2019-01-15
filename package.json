@@ -1,0 +1,23 @@
+{
+  "name": "hooks",
+  "version": "1.0.0",
+  "description": "okta hooks",
+  "main": "import.js",
+  "dependencies": {
+    "now-logs": "0.0.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omgitstom/okta-hooks.git"
+  },
+  "author": "Tom Abbott",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/omgitstom/okta-hooks/issues"
+  },
+  "homepage": "https://github.com/omgitstom/okta-hooks#readme"
+}
