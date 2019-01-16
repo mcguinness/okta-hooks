@@ -6,8 +6,13 @@ Hooks are a feature in Okta that allows Okta to call out to an API, to get direc
 
 This repository contains code to deploy a serverless API using [Zeit](https://zeit.co) that uses query parameters to control the responses of the API.  This allows for people to be able to demo Okta Hooks without needing to write code or deploy an API (such as https://github.com/omgitstom/cloudformation).
 
-When specifying your hook URL location in Okta, you can specify query parameters allowing you to demo Okta hooks without modifying any code:
+When specifying your hook URL location in Okta, you can specify query parameters allowing you to demo Okta hooks without modifying any code.
 
+A quick example of this.  If you wanted to show a pre-registration hook that updates the profile to include a frequent flyer number, you would specify this hook URL in Okta:
+
+```
+https://myfictionalapi.com/pre-reg?mode=profile-update&key=frequentFlyerNo&value=yH18kn3a
+```
 
 
 ## Installation
