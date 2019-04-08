@@ -18,7 +18,7 @@ module.exports = (req, res) => {
     case 'error':
       response.error = errorUtil(query);
       break;
-    case 'deny-update':
+    case 'deny-registration':
       response.commands.push({
         "type": "com.okta.action.update",
         "value": {
