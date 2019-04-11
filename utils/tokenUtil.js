@@ -7,18 +7,13 @@ let createPatchCommands = (query) => {
 
   //Prepare List
   Object.keys(query).forEach(key => {
-    console.log('--------QUERY', query);
-    console.log('--------KEY', key);
-    console.log('--------item', query[key]);
     list[key] = !Array.isArray(query[key]) ? [query[key]]: query[key];
   });
-  console.log('--------LIST', list);
+
   //Generate Commands
   Object.keys(list).forEach(key => {
     let array = list[key];
     array.forEach(x => {
-      console.log('--------ARRAY', array);
-      console.log('--------ITEM', x);
       let params = x.split(':');
       let op = params[0];
       let path = params[1];
