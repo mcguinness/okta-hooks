@@ -10,13 +10,5 @@ module.exports = (query) => {
     }
   };
 
-  /*
-  {
-    "type": "com.okta.user.profile.update",
-    "value": {
-      "frequentFlyerNo": "12345"
-    }
-  }
-  */
   return profileUpdate;
 }

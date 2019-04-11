@@ -1,31 +1,18 @@
-const {
-  parse
-} = require("url");
+const { parse } = require("url");
+const errorUtil = require("./utils/errorUtil.js");
+const responseUtil = require("./utils/responseUtil.js");
+const tokenUtil = require("./utils/tokenUtil.js");
 
 module.exports = (req, res) => {
 
-  const {
-    query
-  } = parse(req.url, true);
+  const { query } = parse(req.url, true);
 
-  //Default Command
-  var response = {
-    "commands": []
-  };
-  var statusCode = 200;
+  let commands = [];
+  let error = errorUtil(query);
 
   switch (query.mode) {
-    case 'error':
-      response.error = {
-        "errorSummary": "Customized Error Summary",
-        "errorCauses": [{
-          "errorSummary": "Customized Error Summary",
-          "reason": "UNKNOWN"
-        }]
-      }
-      break;
-    case 'patch-tokens':
-      response.commands.push({
+    case 'patch-tokens-fast':
+      commands.push({
         "type": "com.okta.tokens.access.patch",
         "value": [{
           "op": "add",
@@ -33,7 +20,7 @@ module.exports = (req, res) => {
           "value": "1234"
         }]
       });
-      response.commands.push({
+      commands.push({
         "type": "com.okta.tokens.identity.patch",
         "value":[{
             "op": "add",
@@ -42,16 +29,11 @@ module.exports = (req, res) => {
           }]
       });
       break;
-    case 'no-content':
-      statusCode = 204;
+    case 'patch-tokens':
+      commands = tokenUtil.createPatchCommands(query);
     default:
   }
 
-  res.writeHead(statusCode, //status code
-    {
-      "Content-Type": "application/json"
-    }
-  );
+  responseUtil.returnCommands(req, res, commands, error);
 
-  res.end(JSON.stringify(response));
 };
