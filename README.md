@@ -39,6 +39,10 @@ To use this code you will need to have your own Vercel deployment. This requires
 + Install the [Vercel CLI](https://vercel.com/download)
 + Register with Vercel - run `vercel` from your terminal
 
+You can also simply click the button below.
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/mraible/okta-hooks)
+
 ### Steps
 
 Now that you have `vercel` installed, you can clone this repo and use `vercel` to deploy an api.
