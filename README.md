@@ -4,7 +4,7 @@
 
 Hooks are a feature in Okta that allows Okta to call out to an API, to get direction (or commands) on what to do.
 
-This repository contains code to deploy a serverless API using [Zeit Now](https://zeit.co/now) that uses query parameters to control the responses of the API.  This allows for people to be able to demo Okta Hooks without needing to write code or deploy an API (such as https://github.com/omgitstom/cloudformation).
+This repository contains code to deploy a serverless API using [Vercel](https://vercel.com/) that uses query parameters to control the responses of the API.  This allows for people to be able to demo Okta Hooks without needing to write code or deploy an API (such as https://github.com/omgitstom/cloudformation).
 
 When specifying your hook URL location in Okta, you can specify query parameters allowing you to demo Okta hooks without modifying any code.
 
@@ -33,15 +33,15 @@ This url will produce the right response to update the profile with a frequent f
 
 ### Prerequisites
 
-To use this code you will need to have your own Zeit Now deployment. This requires you to:
+To use this code you will need to have your own Vercel deployment. This requires you to:
 
 + Install [npm](https://www.npmjs.com/get-npm)
-+ Install the [Zeit Now CLI](https://zeit.co/docs/v2/getting-started/installation/#from-npm)
-+ Register with Zeit - run `now login` from your terminal
++ Install the [Vercel CLI](https://vercel.com/download)
++ Register with Vercel - run `vercel` from your terminal
 
 ### Steps
 
-Now that you have `now` installed, you can clone this repo and use `now` to deploy an api.
+Now that you have `vercel` installed, you can clone this repo and use `vercel` to deploy an api.
 
 First, clone the repo using your terminal:
 
@@ -55,15 +55,15 @@ Then, change the directory:
 cd okta-hooks
 ```
 
-Then, deploy with `now`:
+Then, deploy with `vercel`:
 
 ```
-now
+vercel
 ```
 
 ## Pre-registration
 
-Endpoint: `https://{yourzeitdeployurl}.now.sh/pre-reg`
+Endpoint: `https://{your-app-name}.vercel.app/pre-reg`
 
 Default Response:
 
@@ -80,7 +80,7 @@ Default Response:
 To update a profile, specify the `mode` to be `profile-update` in a query parameter:
 
 ```
-https://{yourzeitdeployurl}.now.sh/pre-reg?mode=profile-update
+https://{your-app-name}.vercel.app/pre-reg?mode=profile-update
 ```
 
 This will return a command to update the profile:
@@ -101,7 +101,7 @@ This will return a command to update the profile:
 To control the propery and value that is set, you can also pass the `key` and `value` in the query parameters:
 
 ```
-https://{yourzeitdeployurl}.now.sh/pre-reg?mode=profile-update&key=favoriteAnimal&value=Miley+Cyrus
+https://{your-app-name}.vercel.app/pre-reg?mode=profile-update&key=favoriteAnimal&value=Miley+Cyrus
 ```
 
 This will return the specified value in the command:
@@ -124,7 +124,7 @@ This will return the specified value in the command:
 To deny the registration, specify the `mode` to be `profile-update` in a query parameter:
 
 ```
-https://{yourzeitdeployurl}.now.sh/pre-reg?mode=deny-registration
+https://{your-app-name}.vercel.app/pre-reg?mode=deny-registration
 ```
 
 Response:
@@ -146,7 +146,7 @@ Response:
 To error to the end user, specify the `mode` to be `error` in a query parameter:
 
 ```
-https://{yourzeitdeployurl}.now.sh/pre-reg?mode=error
+https://{your-app-name}.vercel.app/pre-reg?mode=error
 ```
 
 Response:
@@ -173,7 +173,7 @@ Response:
 Additional query parameters can be provided to override any property in the errorCauses array.  For example:
 
 ```
-https://{yourzeitdeployurl}.now.sh/pre-reg?mode=error&errorSummary=Something+went+wrong&reason=UNKNOWN_PROJECT_ID&locationType=body&location=projectId&domain=project
+https://{your-app-name}.vercel.app/pre-reg?mode=error&errorSummary=Something+went+wrong&reason=UNKNOWN_PROJECT_ID&locationType=body&location=projectId&domain=project
 ```
 
 Will respond with:
