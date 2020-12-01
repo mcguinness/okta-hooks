@@ -41,7 +41,7 @@ To use this code you will need to have your own Vercel deployment. This requires
 
 You can also simply click the button below.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/mraible/okta-hooks)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/omgitstom/okta-hooks)
 
 ### Steps
 
