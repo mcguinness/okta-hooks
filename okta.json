@@ -1,6 +1,6 @@
 {
- "name": "Okta Inline Hooks with Zeit Now",
- "description": "This repo Zeit Now to quickly configure a serverless function that can responsd to a Okta Inline Hook.  You can use query parameters to modify responses for testing",
+ "name": "Okta Inline Hooks with Vercel",
+ "description": "This repo uses Vercel to quickly configure a serverless function that can responsd to a Okta Inline Hook.  You can use query parameters to modify responses for testing.",
  "categories": [
     "hooks"
   ]
