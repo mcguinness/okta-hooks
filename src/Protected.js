@@ -11,9 +11,7 @@ const Protected = () => {
       // When user isn't authenticated, forget any user info
       setUserInfo(null);
     } else {
-      oktaAuth.getUser().then(info => {
-        setUserInfo(info);
-      });
+      setUserInfo(authState.idToken.claims);
     }
   }, [authState, oktaAuth]); // Update if authState changes
 
