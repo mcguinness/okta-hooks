@@ -13,19 +13,27 @@ module.exports = (req, res) => {
   switch (query.mode) {
     case 'patch-tokens-fast':
       commands.push({
-        "type": "com.okta.tokens.access.patch",
+        "type": "com.okta.identity.patch",
         "value": [{
           "op": "add",
-          "path": "/claims/extPatientId",
+          "path": "/claims/tenant",
           "value": "1234"
         }]
       });
       commands.push({
-        "type": "com.okta.tokens.identity.patch",
+        "type": "com.okta.access.patch",
         "value":[{
             "op": "add",
-            "path": "claims/guid",
-            "value": "F0384685-F87D-474B-848D-2058AC5655A7"
+            "path": "/claims/tenant",
+            "value": "1234"
+          }]
+      });
+      commands.push({
+        "type": "com.okta.access.patch",
+        "value":[{
+            "op": "add",
+            "path": "/claims/roles",
+            "value": ["Admin", "Owner"]
           }]
       });
       break;
