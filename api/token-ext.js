@@ -21,6 +21,14 @@ module.exports = (req, res) => {
         }]
       });
       commands.push({
+        "type": "com.okta.identity.patch",
+        "value": [{
+          "op": "add",
+          "path": "/claims/beer",
+          "value": "IPA"
+        }]
+      });
+      commands.push({
         "type": "com.okta.access.patch",
         "value":[{
             "op": "add",
