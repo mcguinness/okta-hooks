@@ -5,6 +5,8 @@ const tokenUtil = require("./utils/tokenUtil.js");
 
 module.exports = (req, res) => {
 
+  console.log(req.body);
+
   const { query } = parse(req.url, true);
 
   let commands = [];
