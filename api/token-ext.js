@@ -2,10 +2,12 @@ const { parse } = require("url");
 const errorUtil = require("./utils/errorUtil.js");
 const responseUtil = require("./utils/responseUtil.js");
 const tokenUtil = require("./utils/tokenUtil.js");
+const util = require('util');
+
 
 module.exports = (req, res) => {
 
-  console.log(req.body);
+  console.log(util.inspect(req.body, {depth: null}
 
   const { query } = parse(req.url, true);
 
