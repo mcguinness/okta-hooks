@@ -7,7 +7,7 @@ const util = require('util');
 
 module.exports = (req, res) => {
 
-  console.log(util.inspect(req.body, {depth: null}
+  console.log(util.inspect(req.body, {depth: null}));
 
   const { query } = parse(req.url, true);
 
